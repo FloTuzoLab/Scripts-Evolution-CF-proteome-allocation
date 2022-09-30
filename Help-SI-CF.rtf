@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww15140\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ### Information regarding the manuscript Proteome allocation and the evolution of metabolic cross-feeding ###\
+\
+The scripts relating to the paper are spread between those used in the main document and those used in the Supplementary Information. They are then entitled with regards to the section in which they were used. The function used to draw plots can be found in the directory \'ab\'a0Plot-function\'a0\'bb.\
+\
+## Each script is based on the simulation of Adaptive Dynamics between 2 or more metabolic cascades encoded by specific genotypes. Metabolic cascades are described by a succession of reactions. Parameters used are to be found at the beginning of each script, or just before the succession of loops when several figures were drawn from the same script.\
+\
+## In the sections about the optimisation of the proteome part allocated to the focal pathway, results are obtained directly from the first large chunk of loops.\
+\
+##In the sections about adaptive allocation, the total proteome fraction dedicated to the whole pathway is first calculated assuming the set of parameters studied before this total fraction can be used to determine the adaptive allocation between two sub pathways. The meaning of each variables and their units is to be found in the first section of the SI.\
+\
+### Note about the nesting of metabolic cascades within Adaptive Dynamics framework ###\
+\
+The algorithm consists of: \
+	i.Determining the set of substrate concentrations coinciding with the demographic equilibrium for the resident strategy (that is, the respective concentrations for which the \'ab\'a0fitness flux\'a0\'bb equals that set as a parameter for this equilibrium. Because the size of the population differs from concentrations by order of magnitudes, we find the equilibrium by assessing the flux for a given population size, up until this flux coincides with the aforementioned. This step differs when reversibility is accounted for as it requires to solve the metabolic system as a whole, including all the metabolite concentrations.\
+	ii.Once these concentrations are known, the concentration of the substrate in the environment is considered set by the resident strategy. To avoid numerical inconsistencies, the fitness flux is recomputed for this value of substrate in the environment, and considered to be the fitness of the resident.\
+	iii. The (invasive) fitness of a mutant strategy is then computed for this value of environmental substrate and compared to the fitness of the resident to determine areas where the mutant can invade.\
+	iv. When branching points are observed (and apart from reversibility), the same process is repeated but with two resident strategies. Finding the two population sizes equilibrium required a different ad hoc algorithm to increment changes in population sizes according to fitness values. To draw trait evolution plots, we first determine areas of possible coexistence and then computed the fitness of all neighboring strategies (2, 3 or 4 depending on the location in the parameter space) in this space to finally draw arrows of neighboring invadibility.\
+\
+### Note about figures ###\
+\
+PIPs and TEPs were drawn using an independent script loaded at the beginning of each paper script. To use it, it is necessary to specify the proper locations for each of them (need to be changed to be automatic).\
+}
